@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -40,9 +41,12 @@ import com.zenself.mobile.model.EventKind
 import com.zenself.mobile.model.MobileEvent
 import com.zenself.mobile.sync.EventWriter
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
+import com.google.android.gms.tasks.Tasks
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 @SuppressLint("MissingPermission")
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LocationScreen() {
     val context = LocalContext.current
@@ -69,7 +73,7 @@ fun LocationScreen() {
         if (!hasPermission) return@LaunchedEffect
         try {
             val client = LocationServices.getFusedLocationProviderClient(context)
-            val location: Location? = client.lastLocation.await()
+            val location: Location? = withContext(Dispatchers.IO) { Tasks.await(client.lastLocation) }
             location?.let {
                 locationText = "${it.latitude}, ${it.longitude}"
             }
@@ -107,7 +111,7 @@ fun LocationScreen() {
                         scope.launch {
                             try {
                                 val client = LocationServices.getFusedLocationProviderClient(context)
-                                val location: Location? = client.lastLocation.await()
+                                val location: Location? = withContext(Dispatchers.IO) { Tasks.await(client.lastLocation) }
                                 locationText = if (location != null) {
                                     "${location.latitude}, ${location.longitude}"
                                 } else {
