@@ -22,8 +22,14 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Generate Gradle wrapper (8.5)
-        run: gradle wrapper --gradle-version 8.5
+      - name: Install Gradle 8.5
+        run: |
+          wget -q https://services.gradle.org/distributions/gradle-8.5-bin.zip -O /tmp/gradle.zip
+          unzip -q /tmp/gradle.zip -d /opt/
+          echo "/opt/gradle-8.5/bin" >> $GITHUB_PATH
+
+      - name: Generate Gradle wrapper
+        run: gradle wrapper --gradle-version 8.5 --distribution-type bin
 
       - name: Build debug APK
         run: ./gradlew assembleDebug --no-daemon --stacktrace
