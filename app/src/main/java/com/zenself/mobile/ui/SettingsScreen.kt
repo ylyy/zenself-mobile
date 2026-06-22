@@ -10,7 +10,6 @@ import android.provider.Settings
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Divider
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -42,6 +41,8 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.foundation.background
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.zenself.mobile.sync.EventWriter
@@ -150,7 +151,13 @@ fun SettingsScreen(onBack: () -> Unit) {
                 Text("选择目录")
             }
 
-            Divider(modifier = Modifier.padding(vertical = 16.dp))
+                        androidx.compose.foundation.layout.Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 16.dp)
+                    .height(1.dp)
+                    .background(MaterialTheme.colorScheme.outlineVariant)
+            )
 
             Text("采集间隔", style = MaterialTheme.typography.titleMedium)
             Spacer(modifier = Modifier.height(8.dp))
@@ -183,7 +190,13 @@ fun SettingsScreen(onBack: () -> Unit) {
                 }
             }
 
-            Divider(modifier = Modifier.padding(vertical = 16.dp))
+                        androidx.compose.foundation.layout.Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 16.dp)
+                    .height(1.dp)
+                    .background(MaterialTheme.colorScheme.outlineVariant)
+            )
 
             Text("地点触发打卡", style = MaterialTheme.typography.titleMedium)
             Spacer(modifier = Modifier.height(8.dp))
@@ -201,7 +214,13 @@ fun SettingsScreen(onBack: () -> Unit) {
                 )
             }
 
-            Divider(modifier = Modifier.padding(vertical = 16.dp))
+                        androidx.compose.foundation.layout.Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 16.dp)
+                    .height(1.dp)
+                    .background(MaterialTheme.colorScheme.outlineVariant)
+            )
 
             Text("权限管理", style = MaterialTheme.typography.titleMedium)
             Spacer(modifier = Modifier.height(8.dp))
