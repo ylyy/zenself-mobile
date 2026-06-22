@@ -32,13 +32,12 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.8"
+        kotlinCompilerExtensionVersion = "1.5.5"
     }
 }
 
 dependencies {
-    // Compose BOM — pins all Compose versions together
-    val composeBom = platform("androidx.compose:compose-bom:2024.01.00")
+    val composeBom = platform("androidx.compose:compose-bom:2023.10.01")
     implementation(composeBom)
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
@@ -58,14 +57,13 @@ dependencies {
     // Navigation Compose
     implementation("androidx.navigation:navigation-compose:2.7.6")
 
-    // DataStore (for settings persistence)
+    // DataStore preferences
     implementation("androidx.datastore:datastore-preferences:1.0.0")
 
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
-    // JSON serialization (lightweight, no GSON dependency)
-    implementation("org.json:json:20231013")
+    // org.json ships with Android; no extra dependency needed.
 
     debugImplementation("androidx.compose.ui:ui-tooling")
 }
