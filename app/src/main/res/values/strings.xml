@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ZenSelf</string>
+    <string name="nav_voice">语音倾诉</string>
+    <string name="nav_mood">心情打卡</string>
+    <string name="nav_clipboard">复制即记</string>
+    <string name="nav_location">地点打卡</string>
+    <string name="nav_settings">设置</string>
+
+    <string name="voice_title">语音倾诉</string>
+    <string name="voice_hint">点击麦克风，说出你现在的想法…</string>
+    <string name="voice_listening">正在听…</string>
+
+    <string name="mood_title">心情打卡</string>
+    <string name="mood_hint">你现在感觉如何？</string>
+    <string name="mood_note_hint">补充说明（可选）</string>
+    <string name="mood_sent">已记录 ✓</string>
+
+    <string name="clipboard_title">复制即记</string>
+    <string name="clipboard_empty">剪贴板为空</string>
+    <string name="clipboard_confirm">记录这条内容</string>
+    <string name="clipboard_sent">已记录 ✓</string>
+
+    <string name="location_title">地点打卡</string>
+    <string name="location_fetching">正在获取位置…</string>
+    <string name="location_event_hint">下一个日程（可选）</string>
+    <string name="location_sent">已记录 ✓</string>
+
+    <string name="settings_title">设置</string>
+    <string name="settings_sync_dir">同步目录</string>
+    <string name="settings_sync_dir_desc">Syncthing 同步的目标文件夹</string>
+    <string name="settings_interval">采集间隔</string>
+    <string name="settings_location_title">地点触发打卡</string>
+    <string name="settings_location_desc">进入/离开预设地点时自动打卡</string>
+    <string name="settings_permission_title">权限管理</string>
+
+    <string name="notification_channel_location">位置追踪</string>
+    <string name="notification_channel_location_desc">ZenSelf 后台位置追踪服务</string>
+    <string name="notification_location_title">ZenSelf 位置追踪中</string>
+
+    <string name="error_permission_denied">权限被拒绝，请在设置中开启</string>
+    <string name="error_write_failed">写入失败</string>
+</resources>
